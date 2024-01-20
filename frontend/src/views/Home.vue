@@ -192,9 +192,9 @@ video{
   padding-top: 120px;
   padding-bottom: 190px;
   font-family: 'Bevan', sans-serif;
-  padding-left: 150px;
-  padding-right: 80px;
-  width: 1110px;
+  padding-left: 100px;
+  padding-right: 170px;
+  width: 1210px;
 }
 
 .content h1{

@@ -8,6 +8,15 @@ public class Performance {
     private int teamID;
     private int eventID;
     private int performanceID;
+    private String teamName;
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
 
     public int getPointsWon() {
         return pointsWon;

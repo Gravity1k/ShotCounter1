@@ -21,7 +21,10 @@ public class jdbcPerformanceDTO implements PerformanceDTO {
     @Override
     public List<Performance> getPerformances(int eventId) {
         List<Performance> performanceList = new ArrayList<>();
-        String sql = "SELECT * FROM performance WHERE event_id = ?";
+        String sql = "SELECT p.*, t.team_name " +
+                "FROM performance p " +
+                "JOIN team t ON p.team_id = t.team_id " +
+                "WHERE p.event_id = ?";;
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, eventId);
 
         while (result.next()) {
@@ -32,6 +35,7 @@ public class jdbcPerformanceDTO implements PerformanceDTO {
             performance.setTeamID(result.getInt("team_id"));
             performance.setEventID(result.getInt("event_id"));
             performance.setPerformanceID(result.getInt("performance_id"));
+            performance.setTeamName(result.getString("team_name"));
 
             performanceList.add(performance);
         }
